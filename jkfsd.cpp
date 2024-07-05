@@ -1,4 +1,4 @@
-// Woorr1.cpp: главный файл проекта.
+// Woorr1.cpp: РіР»Р°РІРЅС‹Р№ С„Р°Р№Р» РїСЂРѕРµРєС‚Р°.
 
 #include "stdafx.h"
 #include <stdio.h>
@@ -18,13 +18,13 @@ using namespace System::IO;
 #define DOWN 80
 
 const char dan[7][80] = {
-    "У кого NEW машина?                                      ",
-    "Введите силь матора, чтоб узнать информацию             ",
-    "Одинаковая силь, но разные машины                       ",
-    "Алфавитный список всех покупателей?                     ",
-    "Диаграмма. Процентное соотношение покупателей с машинами",
+    "РЈ РєРѕРіРѕ NEW РјР°С€РёРЅР°?                                      ",
+    "Р’РІРµРґРёС‚Рµ СЃРёР»СЊ РјР°С‚РѕСЂР°, С‡С‚РѕР± СѓР·РЅР°С‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ             ",
+    "РћРґРёРЅР°РєРѕРІР°СЏ СЃРёР»СЊ, РЅРѕ СЂР°Р·РЅС‹Рµ РјР°С€РёРЅС‹                       ",
+    "РђР»С„Р°РІРёС‚РЅС‹Р№ СЃРїРёСЃРѕРє РІСЃРµС… РїРѕРєСѓРїР°С‚РµР»РµР№?                     ",
+    "Р”РёР°РіСЂР°РјРјР°. РџСЂРѕС†РµРЅС‚РЅРѕРµ СЃРѕРѕС‚РЅРѕС€РµРЅРёРµ РїРѕРєСѓРїР°С‚РµР»РµР№ СЃ РјР°С€РёРЅР°РјРё",
     "                                                        ",
-    "Выход                                                   "
+    "Р’С‹С…РѕРґ                                                   "
 };
 
 const char BlankLine[] = "";
@@ -67,7 +67,7 @@ int main(array<System::String ^> ^args) {
     Console::BufferWidth = Console::WindowWidth; 
 
     if ((in = fopen("aslbek1_6.txt", "r")) == NULL) {
-        printf("\nФайл не открыт !");
+        printf("\nР¤Р°Р№Р» РЅРµ РѕС‚РєСЂС‹С‚ !");
         _getch();
         exit(1);
     }
@@ -166,7 +166,7 @@ void maxim(struct z* clients, int NC) {
     Console::BackgroundColor = ConsoleColor::Black;
     Console::CursorLeft = 10;
     Console::CursorTop = 15;
-    printf("Самую NEW машина имеет покупатель %s с машиной %d", best.name, best.video);
+    printf("РЎР°РјСѓСЋ NEW РјР°С€РёРЅР° РёРјРµРµС‚ РїРѕРєСѓРїР°С‚РµР»СЊ %s СЃ РјР°С€РёРЅРѕР№ %d", best.name, best.video);
     getch();
 }
 
@@ -175,13 +175,13 @@ void first(struct z* clients, int NC) {
     Console::ForegroundColor = ConsoleColor::Red;
     Console::CursorLeft = 10;
     Console::CursorTop = 15;
-    printf("Введите силь матор: ");
+    printf("Р’РІРµРґРёС‚Рµ СЃРёР»СЊ РјР°С‚РѕСЂ: ");
     scanf("%d", &inputMemory);
     for (int i = 0; i < NC; i++) {
         if (atoi(clients[i].ozu) == inputMemory) {
             Console::CursorLeft = 10;
             Console::CursorTop++;
-            printf("Клиент %s имеет силь двигатель %s", clients[i].name, clients[i].ozu);
+            printf("РљР»РёРµРЅС‚ %s РёРјРµРµС‚ СЃРёР»СЊ РґРІРёРіР°С‚РµР»СЊ %s", clients[i].name, clients[i].ozu);
         }
     }
     getch();
@@ -220,7 +220,7 @@ void diagram(struct z* clients, int NC, struct sp* &spisok) {
         sum += clients[i].price;
     if (!spisok)
         for (i = 0; i < NC; i++)
-            vstavka(clients, NC, spisok, clients[i].name); // Вставка имен покупателей
+            vstavka(clients, NC, spisok, clients[i].name); // Р’СЃС‚Р°РІРєР° РёРјРµРЅ РїРѕРєСѓРїР°С‚РµР»РµР№
     Color = ConsoleColor::Black;
     for (nt = spisok, i = 0; nt != 0; nt = nt->sled, i++) {
         sprintf(str1, "%s", clients[i].name);
@@ -240,7 +240,7 @@ void diagram(struct z* clients, int NC, struct sp* &spisok) {
         Console::CursorLeft = 60;
         for (len = 0; len < clients[i].price * 100. / sum + 5; len++)
             printf(" ");
-        if (NColor == 14) // выделяем на диаграмму 14 цветов
+        if (NColor == 14) // РІС‹РґРµР»СЏРµРј РЅР° РґРёР°РіСЂР°РјРјСѓ 14 С†РІРµС‚РѕРІ
         {
             Color = ConsoleColor::Black;
             NColor = 0;
@@ -263,8 +263,8 @@ void alfalist(struct z* clients, int NC, struct sp* &spisok) {
     }
 
     Console::Clear();
-    printf("\n Алфавитный список покупателей  ");
-    printf("\t\t Алфавитный список покупателей в обратном порядке");
+    printf("\n РђР»С„Р°РІРёС‚РЅС‹Р№ СЃРїРёСЃРѕРє РїРѕРєСѓРїР°С‚РµР»РµР№  ");
+    printf("\t\t РђР»С„Р°РІРёС‚РЅС‹Р№ СЃРїРёСЃРѕРє РїРѕРєСѓРїР°С‚РµР»РµР№ РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ");
     printf("\n ===================================\t");
     printf("\t========================================================\n");
     for (nt = spisok; nt != 0; nt = nt->sled) {
@@ -289,7 +289,7 @@ void kolvo(struct z* clients, int NC) {
 void writeToFile(struct z* clients, int NC, const char* filename) {
     FILE* out = fopen(filename, "w");
     if (out == NULL) {
-        printf("\nНе удалось открыть файл для записи!");
+        printf("\nРќРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё!");
         return;
     }
 
